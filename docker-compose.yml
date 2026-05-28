@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "5050:8080"
+    volumes:
+      - sqlite_data:/app/data
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/taskmanager.db
+
+volumes:
+  sqlite_data:
